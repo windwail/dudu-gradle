@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dudu
+    username: userdudu
+    password: kgcxdDIWE8FJYao0
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        type: trace
+        jdbc:
+          lob:
+            non_contextual_creation: true
