@@ -5,3 +5,4 @@ export const USER_REGISTER = "USER_REGISTER";
 export const USER_REGISTERED = "USER_REGISTERED"; // success
 export const ALERT = "ALERT";
 export const ALERT_CLOSE = "ALERT_CLOSE";
+export const QUIZ_LIST_LOADED = "QUIZ_LIST_LOADED";

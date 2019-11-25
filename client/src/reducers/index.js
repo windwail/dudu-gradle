@@ -1,4 +1,4 @@
-import {ADD_ARTICLE, ALERT, ALERT_CLOSE} from "../constants/action-types";
+import {ADD_ARTICLE, ALERT, ALERT_CLOSE, QUIZ_LIST_LOADED} from "../constants/action-types";
 import {alert, alertClose} from "../actions";
 import store from "../store/index"
 import {SUCCESS} from "../constants/toast-types";
@@ -6,7 +6,9 @@ import {SUCCESS} from "../constants/toast-types";
 const initialState = {
     articles: [],
     remoteArticles: [],
-    toasts: [{message: "Toast 1", id: 1, type: ALERT}, {message: "Toast 2", id: 2, type: SUCCESS}, {message: "Toast 3", id: 4}]
+    //toasts: [{message: "Toast 1", id: 1, type: ALERT}, {message: "Toast 2", id: 2, type: SUCCESS}, {message: "Toast 3", id: 4}],
+    toasts: [],
+    quizList: []
 };
 
 function uuidv4() {
@@ -17,15 +19,13 @@ function uuidv4() {
 
 function rootReducer(state = initialState, action) {
     if (action.type === ADD_ARTICLE) {
-        return Object.assign({}, state, {
+        return {
             articles: state.articles.concat(action.payload)
-        });
+        };
     }
 
-    if (action.type === "DATA_LOADED") {
-        return Object.assign({}, state, {
-            remoteArticles: state.remoteArticles.concat(action.payload)
-        });
+    if (action.type === QUIZ_LIST_LOADED) {
+        return { ...state, quizList: action.payload }
     }
 
     if (action.type === ALERT) {

@@ -5,7 +5,8 @@ import {
     USER_LOGIN,
     USER_LOGOUT,
     USER_REGISTER,
-    USER_REGISTERED
+    USER_REGISTERED,
+    QUIZ_LIST_LOADED
 } from "../constants/action-types";
 
 export function addArticle(payload) {
@@ -34,12 +35,12 @@ export function alertClose(payload) {
 
 
 
-export function getData() {
+export function loadQuizList() {
     return function(dispatch) {
-        return fetch("http://localhost:3004/articles")
+        return fetch("http://localhost:8080/quiz/list")
             .then(response => response.json())
             .then(json => {
-                dispatch({ type: "DATA_LOADED", payload: json });
+                dispatch({ type: QUIZ_LIST_LOADED, payload: json });
             });
     };
 }
