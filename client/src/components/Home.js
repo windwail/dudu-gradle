@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Button} from "react-bootstrap";
 import {alert, loadQuizList} from "../actions";
 import QuizMenuRow from "./QuizMenuRow";
+import {ColoredLine} from "./ColoredLine";
 
 class Home extends Component {
 
@@ -13,9 +14,12 @@ class Home extends Component {
     render() {
         return (
             <div>
+                <br/>
                 <h2> Доступные тесты: </h2>
                 <br/>
-                { this.props.quizList &&
+
+                {
+                    this.props.quizList &&
                     this.props.quizList.map( (q) => <QuizMenuRow quiz={q}/>)
                 }
             </div>

@@ -17,8 +17,6 @@ import ru.dudu.service.QuizService;
 @SpringBootTest(classes = DuduApplication.class)
 public class TestDb {
 
-
-
     @Autowired
     private QuizService quizService;
 

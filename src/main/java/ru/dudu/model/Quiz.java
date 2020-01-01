@@ -17,6 +17,10 @@ public class Quiz extends BaseEntity {
     @NotNull
     String name;
 
+    @Column
+    @NotNull
+    String description;
+
     @OneToMany(mappedBy = "quiz")
     Set<QuizSettings> settings;
 
